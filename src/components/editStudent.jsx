@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const updateStudent =  (studentId, firstName, lastName) => {
     try {
       if (studentId && firstName && lastName) {
-         fetch(`http://localhost:8000/students/${studentId}`, {
+         fetch(`http://localhost:8000/students/${studentId}?first_name=${firstName}&last_name=${lastName}`, {
           method: 'PUT',
           body: JSON.stringify({
             first_name: firstName,
@@ -22,9 +22,8 @@ const updateStudent =  (studentId, firstName, lastName) => {
     }
   };
   
-  
 
-function ChangeStudent() {
+function EditStudent() {
   const [isChanged, setIsChanged] = useState(false);
   const [studentId, setStudentId] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -89,4 +88,4 @@ function ChangeStudent() {
   );
 }
 
-export default ChangeStudent;
+export default EditStudent;
